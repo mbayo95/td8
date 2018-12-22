@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="lib-coo2">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../lib-coo2" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/../lib-coo2" recursive="false" />
+  </library>
+</component>

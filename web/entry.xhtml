@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	lang="#{localeBean.language}">
+<f:view locale="#{localeBean.locale}" />
+<h:head>
+	<title>#{msg['label.entry.welcome']}</title>
+</h:head>
+<h:body>
+	<p>
+		<strong>#{msg['label.entry.welcome']}</strong>
+	</p>
+
+	<h2>#{msg['label.entry.indication']}</h2>
+	<fieldset>
+		<h:form>
+			#{msg['label.entry.duration']}<h:inputText value="#{entryBean.simulationDuration}" /> <br />
+			#{msg['label.entry.cashier']}<h:inputText value="#{entryBean.cashierCount}" /> <br />
+			#{msg['label.entry.minService']}<h:inputText value="#{entryBean.minServiceTime}" /> <br />
+			#{msg['label.entry.maxService']}<h:inputText value="#{entryBean.maxServiceTime}" /> <br />
+			#{msg['label.entry.arrival']}<h:inputText value="#{entryBean.clientArrivalInterval}" /> <br />
+			#{msg['label.entry.priority']}<h:inputText value="#{entryBean.priorityClientRate}" /> <br />
+			#{msg['label.entry.patience']}<h:inputText value="#{entryBean.clientPatienceTime}" /> <br />    
+			 
+			<h:commandButton value="#{msg['label.entry.simulate']}" action="#{entryBean.startSimulation}" />
+		</h:form>
+	</fieldset>
+</h:body>
+</html>

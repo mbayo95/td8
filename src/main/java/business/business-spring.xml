@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+	xmlns:context="http://www.springframework.org/schema/context">
+
+	<bean id="simulation" class="business.engine.Simulation" />
+
+        <bean id="entry" class="business.model.SimulationEntry" />
+
+        <bean id="calculator" class="business.engine.StatisticCalculator" />
+
+        <bean id="client" class="business.model.AbstractClient" abstract="true"
+                scope="prototype" />
+        <bean id="operation" class="business.model.AbstractOperation"
+                abstract="true" scope="prototype" />
+
+        <bean id="vipConsultation" class="business.model.VIPClient"
+                parent="client">
+                <property name="operation" ref="consultation" />
+        </bean>
+        <bean id="vipTransfer" class="business.model.VIPClient" parent="client">
+                <property name="operation" ref="transfer" />
+        </bean>
+        <bean id="vipWithdraw" class="business.model.VIPClient" parent="client">
+                <property name="operation" ref="withdraw" />
+        </bean>
+        <bean id="normalConsultation" class="business.model.Client"
+                parent="client">
+                <property name="operation" ref="consultation" />
+        </bean>
+        <bean id="normalTransfer" class="business.model.Client" parent="client">
+                <property name="operation" ref="transfer" />
+        </bean>
+        <bean id="normalWithdraw" class="business.model.Client" parent="client">
+                <property name="operation" ref="withdraw" />
+        </bean>
+        <bean id="consultation" class="business.model.Consultation"
+                parent="operation" />
+        <bean id="transfer" class="business.model.Transfer" parent="operation" />
+        <bean id="withdraw" class="business.model.Withdraw" parent="operation" />
+
+
+
+</beans>

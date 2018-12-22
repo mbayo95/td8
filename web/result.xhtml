@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	lang="#{localBean.language}">
+<f:view locale="#{localBean.locale}" />
+<h:head>
+	<title>#{msg['label.result.title']}</title>
+</h:head>
+<h:body>
+	<fieldset>
+		<legend>
+			<strong>#{msg['label.result.title']}</strong>
+		</legend>
+		#{msg['label.result.served']} #{resultBean.servedClientCount} <br />
+		#{msg['label.result.nonServed']} #{resultBean.nonServedClientCount} <br /> 
+		#{msg['label.result.waiting']} #{resultBean.averageClientWaitingTime} <br /> 
+		#{msg['label.result.service']} #{resultBean.averageClientServiceTime} <br />
+		#{msg['label.result.occupation']} #{resultBean.cashierOccupationRate} % <br /> 
+		#{msg['label.result.satisfaction']} #{resultBean.clientSatisfactionRate} % <br /> 
+	</fieldset>
+</h:body>
+</html>
